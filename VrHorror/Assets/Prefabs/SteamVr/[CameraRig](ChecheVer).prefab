@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 17248990}
   - component: {fileID: 17248991}
+  - component: {fileID: 3942491228129182041}
+  - component: {fileID: 7589570254243122848}
+  - component: {fileID: 2067228739089372660}
+  - component: {fileID: 791328367134372968}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Hand
@@ -76,6 +80,64 @@ MonoBehaviour:
     m_TypeName: Valve.VR.SteamVR_Behaviour_Pose_DeviceIndexChangedEvent, SteamVR,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   broadcastDeviceChanges: 1
+--- !u!114 &3942491228129182041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17248989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17a1f1250165234a9e80e39cd3bd024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbing:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+--- !u!135 &7589570254243122848
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17248989}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2067228739089372660
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17248989}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!138 &791328367134372968
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17248989}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &255363297
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +384,7 @@ GameObject:
   - component: {fileID: 468780745}
   - component: {fileID: 468780744}
   - component: {fileID: 468780743}
+  - component: {fileID: 942359980}
   m_Layer: 0
   m_Name: '[CameraRig](ChecheVer)'
   m_TagString: Player
@@ -419,6 +482,22 @@ MonoBehaviour:
   - {x: -1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: 1.275}
   - {x: 1.65, y: 0.01, z: 1.275}
+--- !u!54 &942359980
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468780740}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &745416977
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +804,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1995477535}
   - component: {fileID: 1995477536}
+  - component: {fileID: 3917922216644086018}
   - component: {fileID: 8330374121302817823}
+  - component: {fileID: 5536509137499979702}
+  - component: {fileID: 2249662661238327920}
+  - component: {fileID: 1241169303271832065}
+  - component: {fileID: 1436096825636861141}
+  - component: {fileID: 695132496899826794}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Hand
@@ -792,6 +877,21 @@ MonoBehaviour:
     m_TypeName: Valve.VR.SteamVR_Behaviour_Pose_DeviceIndexChangedEvent, SteamVR,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   broadcastDeviceChanges: 1
+--- !u!114 &3917922216644086018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995477534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17a1f1250165234a9e80e39cd3bd024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbing:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
 --- !u!120 &8330374121302817823
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -887,6 +987,84 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &5536509137499979702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995477534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad41b7ee2ed5adf479f5d58d85094412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move:
+    actionPath: /actions/default/in/Teleport
+    needsReinit: 0
+  b: {fileID: 2874270684681803496}
+  distance: 20
+  marker: {fileID: 0}
+  marker2: {fileID: 0}
+  pointer: {fileID: 1995477535}
+--- !u!135 &2249662661238327920
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995477534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1241169303271832065
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995477534}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!138 &1436096825636861141
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995477534}
+  m_ConnectedBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!114 &695132496899826794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995477534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17a1f1250165234a9e80e39cd3bd024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbing:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
 --- !u!1 &2003610236
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +1076,7 @@ GameObject:
   - component: {fileID: 2003610237}
   - component: {fileID: 2003610239}
   - component: {fileID: 2003610240}
+  - component: {fileID: 3377121386748662909}
   m_Layer: 0
   m_Name: Cabeza
   m_TagString: Untagged
@@ -951,6 +1130,23 @@ MonoBehaviour:
   currentLifes: 0
   uiVida: {fileID: 316567852}
   uiVidas: {fileID: 393505618}
+--- !u!114 &3377121386748662909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003610236}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4791a0893837d94194de3e415a6323d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchpd:
+    actionPath: /actions/default/in/MoveTouchpad
+    needsReinit: 0
+  speed: 2
+  cameraRig: {fileID: 468780746}
 --- !u!1 &6570263970424645435
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,6 +1157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6220414119914535909}
   - component: {fileID: 7922230712307964653}
+  - component: {fileID: 2874270684681803496}
   m_Layer: 0
   m_Name: Cuerpo
   m_TagString: Body
@@ -995,3 +1192,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2874270684681803496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570263970424645435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c40f1cedebe8b4dba22874c2ac2848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dc: {fileID: 5536509137499979702}
+  parent: {fileID: 468780746}
+  speed: 2
+  isMoving: 0
