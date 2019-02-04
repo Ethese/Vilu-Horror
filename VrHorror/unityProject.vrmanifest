@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.vrhorror.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\CittVR\\Desktop\\Vilú\\Vilu-Horror\\VrHorror\\actions.json",
+      "action_manifest_path": "C:\\Users\\Citt\\Desktop\\VR\\Vilu-Horror\\VrHorror\\actions.json",
       "strings": {
         "en_us": {
           "name": "VrHorror [Testing]"
