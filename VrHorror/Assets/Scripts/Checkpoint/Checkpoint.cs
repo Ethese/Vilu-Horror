@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour
 {
     public VidaJugador vidaPlayer;
 
-    Renderer rnd;
+    public Renderer rnd;
     public Material checkpointOff;
     public Material checkpointOn;
 
@@ -15,7 +15,7 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         vidaPlayer = FindObjectOfType<VidaJugador>();
-        rnd = GetComponent<Renderer>();
+        //rnd = GetComponent<Renderer>();
     }
 
     void CheckpointOn()
