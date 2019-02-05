@@ -10,6 +10,7 @@ TagManager:
   - Hand
   - ObjetoSuelto
   - STAHP
+  - Player Stealth
   layers:
   - Default
   - TransparentFX

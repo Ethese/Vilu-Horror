@@ -9,12 +9,16 @@ public class Interact : MonoBehaviour {
     [HideInInspector]
     public Hand activeHand = null;
 
-    public bool examined;
+    private Sound s;
+
+    public bool examined, dropped, impact;
+    public float velocty;
     private TextMesh text;
 
     private void Start()
     {
         text = GetComponentInChildren<TextMesh>();
+        s = GetComponent<Sound>();
 
         text.text = string.Empty;
         examined = false;
@@ -38,6 +42,7 @@ public class Interact : MonoBehaviour {
         {
             examined = true;
         }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -56,9 +61,22 @@ public class Interact : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            s.Impact(velocty); // on collision increase sound radius
+        }
+    }
+
     public void Examine()
     {
-        text.text = gameObject.name;
+        text.text = gameObject.name; // show object STATS
+    }
+
+    public void GetVelocity(Vector3 vel)
+    {
+        velocty = vel.magnitude; // get velocity from hand velocity
     }
 
 }

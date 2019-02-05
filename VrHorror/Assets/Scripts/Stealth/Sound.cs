@@ -20,8 +20,9 @@ public class Sound : MonoBehaviour
 
     private void Update()
     {
-        awareness = moveVolume + impactVolume;
-        ball.transform.localScale = new Vector3(awareness, awareness, awareness);
+        SoundManager();
+
+        
 
         if (Input.GetKey("w"))
         {
@@ -31,6 +32,17 @@ public class Sound : MonoBehaviour
         if (!Input.anyKey)
         {
             Still();
+        }
+    }
+
+    public void SoundManager()
+    {
+        awareness = moveVolume + impactVolume;
+        ball.transform.localScale = new Vector3(awareness, awareness, awareness);
+
+        if (impactVolume > 0f)
+        {
+            impactVolume -= 10f * Time.deltaTime;
         }
     }
 
@@ -52,10 +64,7 @@ public class Sound : MonoBehaviour
 
     public void Impact(float vel)
     {
+
         impactVolume += vel;
-        if (impactVolume > 0f)
-        {
-            impactVolume -= 10f * Time.deltaTime;
-        }
     }
 }

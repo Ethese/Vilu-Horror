@@ -5,6 +5,7 @@ using UnityEngine;
 public class Body : MonoBehaviour
 {
     public DashContr dc;
+    public Sound stealth;
 
     public Transform parent;
 
@@ -23,6 +24,11 @@ public class Body : MonoBehaviour
         if (isMoving)
         {
             Move(dc.SetDirection());
+            stealth.Moving(speed * 1.5f);
+        }
+        else
+        {
+            stealth.Still();
         }
     }
 

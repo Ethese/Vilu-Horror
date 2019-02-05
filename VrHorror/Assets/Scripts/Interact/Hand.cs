@@ -93,6 +93,10 @@ public class Hand : MonoBehaviour {
         target.velocity = pose.GetVelocity();
         target.angularVelocity = pose.GetAngularVelocity();
 
+        // prepare for IMPACT!!
+        current.dropped = true;
+        current.GetVelocity(target.angularVelocity);
+
         // detach
         joint.connectedBody = null;
 

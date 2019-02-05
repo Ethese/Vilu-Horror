@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyAW : MonoBehaviour
 {
     public Transform parent;
     public float speed;
@@ -18,8 +18,7 @@ public class Enemy : MonoBehaviour
     {
 
     }
-
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "PlayerPER" || other.tag == "Player")
