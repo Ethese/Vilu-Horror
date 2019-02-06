@@ -9,6 +9,7 @@ TagManager:
   - hand
   - savePoint
   - checkPoint
+  - body
   layers:
   - Default
   - TransparentFX
