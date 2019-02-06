@@ -18,14 +18,15 @@ namespace vida
         float timer;
         float timeToRespawn = 15f;
         public Vector3 respawn;
+        public Transform playerRigid;
 
         void Awake()
         {
             // Set the initial health of the player.
             currentHealth = startingHealth;
             currentLifes = startingLifes;
-           // uiVida.text = ("Vida: " + currentHealth);
-           // uiVidas.text = ("Vidas: " + currentLifes);
+            // uiVida.text = ("Vida: " + currentHealth);
+            // uiVidas.text = ("Vidas: " + currentLifes);
 
         }
 
@@ -83,7 +84,7 @@ namespace vida
               //  uiVidas.text = ("Vidas: " + currentLifes);
                 currentHealth = startingHealth;
                 Debug.Log("Moriste" + currentLifes);
-                gameObject.GetComponent<Transform>().position = respawn;
+                playerRigid.position = new Vector3(respawn.x, respawn.y, respawn.z);
                 anim.SetTrigger("FadeIn");
               //  uiVida.text = ("Vida: " + currentHealth);
                 

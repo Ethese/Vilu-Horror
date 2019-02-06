@@ -15,6 +15,7 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         vidaPlayer = FindObjectOfType<VidaJugador>();
+        Debug.Log(tag);
         //rnd = GetComponent<Renderer>();
     }
 
@@ -36,10 +37,22 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag.Equals("Player"))
+        if (tag.Equals("savePoint"))
         {
-            vidaPlayer.SetRespawnPoint(transform.position);
-            CheckpointOn();
+            if (other.tag.Equals("hand"))
+            {
+                vidaPlayer.SetRespawnPoint(transform.position);
+                vidaPlayer.SetRespawnPoint(transform.position);
+                CheckpointOn();
+            }
+        }
+        if(tag.Equals("checkPoint"))
+        {
+            if (other.tag.Equals("body"))
+            {
+                vidaPlayer.SetRespawnPoint(transform.position);
+                CheckpointOn();
+            }
         }
     }
 }
