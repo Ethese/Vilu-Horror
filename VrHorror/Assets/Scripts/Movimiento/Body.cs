@@ -34,17 +34,19 @@ public class Body : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "")
+        if (other.tag == "STAHP")
         {
             isMoving = false;
+            Destroy(other.gameObject);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "")
+        if (other.tag == "STAHP")
         {
             isMoving = false;
+            Destroy(other.gameObject);
         }
     }
 

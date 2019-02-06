@@ -12,7 +12,7 @@ public class Interact : MonoBehaviour {
     private Sound s;
 
     public bool examined, dropped, impact;
-    public float velocty;
+    public float velocity;
     private TextMesh text;
 
     private void Start()
@@ -34,20 +34,35 @@ public class Interact : MonoBehaviour {
         {
             text.text = string.Empty;
         }
+
+        if (impact)
+        {
+            s.Impact(velocity);
+            impact = false;
+        }
     }
 
+    #region COLLISIONS
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "hand")
+        if (other.tag == "Hand")
         {
             examined = true;
         }
-        
+
+        if (examined && velocity > 0)
+        {
+            if (other.tag == "ENEMY")
+            {
+                Debug.Log("OUF");
+            }
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "hand")
+        if (other.tag == "Hand")
         {
             examined = true;
         }
@@ -55,7 +70,7 @@ public class Interact : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "hand")
+        if (other.tag == "Hand")
         {
             examined = false;
         }
@@ -65,10 +80,10 @@ public class Interact : MonoBehaviour {
     {
         foreach (ContactPoint contact in collision.contacts)
         {
-            s.Impact(velocty); // on collision increase sound radius
+            impact = true;
         }
     }
-
+    #endregion
     public void Examine()
     {
         text.text = gameObject.name; // show object STATS
@@ -76,7 +91,7 @@ public class Interact : MonoBehaviour {
 
     public void GetVelocity(Vector3 vel)
     {
-        velocty = vel.magnitude; // get velocity from hand velocity
+        velocity = vel.magnitude; // get velocity from hand velocity
     }
 
 }
