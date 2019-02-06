@@ -8,7 +8,7 @@ namespace vida
     public class VidaJugador : MonoBehaviour {
 
         public Animator anim;
-        public int startingHealth = 100;                            // The amount of health the player starts the game with.
+        public int startingHealth;                                  // The amount of health the player starts the game with.
         public int currentHealth;                                   // The current health the player has.
         public int startingLifes = 5;
         public int currentLifes;
@@ -81,7 +81,7 @@ namespace vida
             if (isDead && currentLifes >= 0 )
             {
               //  uiVidas.text = ("Vidas: " + currentLifes);
-                currentHealth = 100;
+                currentHealth = startingHealth;
                 Debug.Log("Moriste" + currentLifes);
                 gameObject.GetComponent<Transform>().position = respawn;
                 anim.SetTrigger("FadeIn");
