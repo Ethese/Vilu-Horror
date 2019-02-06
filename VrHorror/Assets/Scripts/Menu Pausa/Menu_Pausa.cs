@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityStandardAssets.Characters.FirstPerson;
+//using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine;
 
 public class Menu_Pausa : MonoBehaviour
@@ -34,7 +34,7 @@ public class Menu_Pausa : MonoBehaviour
     {
         Menu.SetActive(false);
         Time.timeScale = 1f;
-        GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
+        //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
         Pausado = false;
     }
 
@@ -42,7 +42,7 @@ public class Menu_Pausa : MonoBehaviour
     {
         Menu.SetActive(true);
         Time.timeScale = 0f;
-        GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
+        //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
         Pausado = true;
         
     }
