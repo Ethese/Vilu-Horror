@@ -11,6 +11,14 @@ TagManager:
   - checkPoint
   - body
   - Lluvia
+  tags:
+  - FxTemporaire
+  - projectile
+  - Body
+  - Hand
+  - ObjetoSuelto
+  - STAHP
+  - Player Stealth
   layers:
   - Default
   - TransparentFX
