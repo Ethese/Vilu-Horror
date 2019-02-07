@@ -6,13 +6,14 @@ public class Clima : MonoBehaviour
 {
     GameObject [] splashFind;
     GameObject [] lluviaFind;
+    public Light luz;
     public int rango;
 
     public Material[] skyboxes;
 
    public void RandomClima()
     {
-        rango = Random.Range(0,2);
+        rango = Random.Range(0,3);
     }
    
     void ChangeMySkybox()
@@ -22,9 +23,10 @@ public class Clima : MonoBehaviour
 
     void Start()
     {
-        splashFind  = GameObject.FindGameObjectsWithTag("Splash");
-        lluviaFind =  GameObject.FindGameObjectsWithTag("Lluvia");
         
+        //splashFind = GameObject.FindGameObjectsWithTag("Splash");
+        lluviaFind = GameObject.FindGameObjectsWithTag("Lluvia");
+       
     }
 
     // Update is called once per frame
@@ -38,6 +40,10 @@ public class Clima : MonoBehaviour
                 Despejado();
             }else if (rango == 1)
             {
+                Despejado();
+            }
+            else if (rango == 2)
+            {
                 Lluvia();
             }
         }   
@@ -48,11 +54,13 @@ public class Clima : MonoBehaviour
         //Iniciar Lluvia
         foreach (GameObject lluvia in lluviaFind)
         {
+            luz.intensity = 0.44f;
             lluvia.SetActive(true);
-            foreach (GameObject splash in splashFind)
-            {
-                splash.SetActive(true);
-            }
+            //foreach (GameObject splash in splashFind)
+
+            //{
+             //   splash.SetActive(true);
+            //}
         }
        
         Debug.Log("Lloviendo");
@@ -63,12 +71,15 @@ public class Clima : MonoBehaviour
         //Detener Lluvia
         foreach (GameObject lluvia in lluviaFind)
         {
+            luz.intensity = 1.4f;
             lluvia.SetActive(false);
-            foreach (GameObject splash in splashFind)
-            {
-                splash.SetActive(false);
-            }
+            //foreach (GameObject splash in splashFind)
+            //{
+            //    splash.SetActive(false);
+            //}
+            
         }
         Debug.Log("No Lloviendo");
     }
+
 }
