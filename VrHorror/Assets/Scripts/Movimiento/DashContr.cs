@@ -10,6 +10,7 @@ public class DashContr : MonoBehaviour
     public Body b;
 
     public float distance;
+    public bool isMoving;
 
     public GameObject marker, marker2;
     private GameObject go;
@@ -73,7 +74,8 @@ public class DashContr : MonoBehaviour
         if (move.GetStateUp(SteamVR_Input_Sources.Any))
         {
             SetLaser(false);
-            b.isMoving = true;
+            SetDirection(); 
+            isMoving = true;
         }
     }
 }
