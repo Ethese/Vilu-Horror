@@ -6,6 +6,7 @@ using Valve.VR;
 public class DashContr : MonoBehaviour
 {
     public SteamVR_Action_Boolean move = null;
+    private SteamVR_Behaviour_Pose pose = null;
 
     public Body b;
 
@@ -66,12 +67,12 @@ public class DashContr : MonoBehaviour
 
     public void ChangeState()
     {
-        if (move.GetStateDown(SteamVR_Input_Sources.Any))
+        if (move.GetStateDown(pose.inputSource))
         {
             SetLaser(true);
         }
 
-        if (move.GetStateUp(SteamVR_Input_Sources.Any))
+        if (move.GetStateUp(pose.inputSource))
         {
             SetLaser(false);
             SetDirection(); 
