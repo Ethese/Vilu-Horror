@@ -25,6 +25,7 @@ public class DashContr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pose = GetComponent<SteamVR_Behaviour_Pose>();
         ln = GetComponent<LineRenderer>();
         ln.enabled = false;
     }

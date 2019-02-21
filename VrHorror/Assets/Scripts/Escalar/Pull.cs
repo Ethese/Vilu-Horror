@@ -16,6 +16,7 @@ public class Pull : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pose = GetComponent<SteamVR_Behaviour_Pose>();
         posAnt = pose.transform.localPosition;
     }
 
