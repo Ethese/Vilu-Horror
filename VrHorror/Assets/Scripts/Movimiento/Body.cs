@@ -6,6 +6,7 @@ public class Body : MonoBehaviour
 {
     public DashContr dc;
     public Sound stealth;
+    public DashSprint ds;
 
     public Transform parent;
 
@@ -28,6 +29,15 @@ public class Body : MonoBehaviour
         else
         {
             stealth.Still();
+        }
+
+        if (ds.run)
+        {
+            speed = speed * 3;
+        }
+        else
+        {
+            speed = 2;
         }
     }
 
