@@ -12,6 +12,7 @@ TagManager:
   - STAHP
   - Player Stealth
   - floor
+  - Stage2
   layers:
   - Default
   - TransparentFX
