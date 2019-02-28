@@ -11,6 +11,9 @@ TagManager:
   - checkPoint
   - body
   - Lluvia
+  - Fire
+  - WeaponManager
+  - Item
   layers:
   - Default
   - TransparentFX
