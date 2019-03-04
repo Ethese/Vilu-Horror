@@ -19,6 +19,10 @@ TagManager:
   - ObjetoSuelto
   - STAHP
   - Player Stealth
+  - floor
+  - Stage2
+  - Stage3
+  - finish
   layers:
   - Default
   - TransparentFX

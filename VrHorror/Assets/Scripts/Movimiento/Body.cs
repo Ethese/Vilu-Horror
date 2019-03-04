@@ -6,29 +6,38 @@ public class Body : MonoBehaviour
 {
     public DashContr dc;
     public Sound stealth;
+    public DashSprint ds;
 
     public Transform parent;
 
     public float speed;
-    public bool isMoving;
 
     // Start is called before the first frame update
     void Start()
     {
-        isMoving = false;
+        dc.isMoving = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMoving)
+        if (dc.isMoving)
         {
-            Move(dc.SetDirection());
             stealth.Moving(speed * 1.5f);
+            Move(dc.SetDirection());
         }
         else
         {
             stealth.Still();
+        }
+
+        if (ds.run)
+        {
+            speed = speed * 3;
+        }
+        else
+        {
+            speed = 2;
         }
     }
 
@@ -36,8 +45,7 @@ public class Body : MonoBehaviour
     {
         if (other.tag == "STAHP")
         {
-            isMoving = false;
-            Destroy(other.gameObject);
+            dc.isMoving = false;
         }
     }
 
@@ -45,8 +53,7 @@ public class Body : MonoBehaviour
     {
         if (other.tag == "STAHP")
         {
-            isMoving = false;
-            Destroy(other.gameObject);
+            dc.isMoving = false;
         }
     }
 

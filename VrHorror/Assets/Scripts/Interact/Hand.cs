@@ -6,7 +6,6 @@ using Valve.VR;
 public class Hand : MonoBehaviour {
 
     public SteamVR_Action_Boolean grabbing = null;
-    public TextMesh txt;
     public float vel;
 
     private SteamVR_Behaviour_Pose pose = null;
@@ -22,7 +21,7 @@ public class Hand : MonoBehaviour {
     
 	// Update is called once per frame
 	void Update () {
-        txt.text = "FORCE: " + pose.GetVelocity().magnitude;
+        //txt.text = "FORCE: " + pose.GetVelocity().magnitude;
 
         if (grabbing.GetStateDown(pose.inputSource))
         {
