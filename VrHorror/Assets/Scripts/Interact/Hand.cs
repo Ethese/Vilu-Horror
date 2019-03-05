@@ -77,10 +77,7 @@ public class Hand : MonoBehaviour {
         // attach
         Rigidbody target = current.GetComponent<Rigidbody>();
         joint.connectedBody = target;
-
-        // set MELEE force
-        current.examined = true;
-        current.GetVelocity(target.angularVelocity);
+        
 
         // set active hand
         current.activeHand = this;
