@@ -36,11 +36,11 @@ public class OpcioneMenu : MonoBehaviour
 
     public void Toggle_Llanos_Changed(bool newValue)
     {
-        toggleCheche.interactable = newValue;
+        toggleCheche.isOn = false;
     }
 
     public void Toggle_Cheche_Changed(bool newValue)
     {
-        toggleCheche.interactable = newValue;
+        toggleLlanos.isOn = false;
     }
 }
