@@ -23,12 +23,12 @@ public class Hand : MonoBehaviour {
 	void Update () {
         //txt.text = "FORCE: " + pose.GetVelocity().magnitude;
 
-        if (grabbing.GetStateDown(pose.inputSource))
+        if (grabbing.GetStateDown(pose.inputSource) || Input.GetKey("space"))
         {
             PickUp();
         }
 
-        if (grabbing.GetStateUp(pose.inputSource))
+        if (grabbing.GetStateUp(pose.inputSource) || Input.GetKey("r"))
         {
             Drop();
         }
