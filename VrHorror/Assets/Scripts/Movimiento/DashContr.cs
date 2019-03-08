@@ -14,7 +14,9 @@ public class DashContr : MonoBehaviour
     public bool isMoving;
 
     public GameObject marker, marker2;
-    private GameObject go;
+
+    [HideInInspector]
+    public GameObject go, go2;
 
     public Transform pointer;
     private LineRenderer ln;
@@ -34,48 +36,49 @@ public class DashContr : MonoBehaviour
     void Update()
     {
         ChangeState();
-    }
-
-    public void SetLaser(bool enabled)
-    {
-        // enable/disable LASER
-        ln.enabled = enabled;
 
         if (ln.enabled)
         {
-            // Ray direction
-            landingRay = new Ray(pointer.position, pointer.forward);
-            Debug.DrawRay(transform.position, transform.forward * distance, Color.red);
+            SetLaser();
         }
+    }
+
+    public void SetLaser()
+    {
+        // Ray direction
+        landingRay = new Ray(pointer.position, pointer.forward);
 
         // Show Marker at direction
         if (Physics.Raycast(landingRay, out hit, distance))
         {
+            //Destroy(marker2); // Destroy previus marker2
             Destroy(go); // destroy clones
-            go = Instantiate(marker, hit.point, Quaternion.identity); // set marker 1
-            go.transform.position = hit.point;
+            go = Instantiate(marker, hit.point, Quaternion.identity); // set marker 1 at raycast hit point
+            go.transform.position = hit.point; // marker1 follows raycast hit point position
         }
     }
 
+    // sets cameraRig target position at marker2
     public Vector3 SetDirection()
     {
-        Destroy(marker2);
-        marker2 = Instantiate(marker2, hit.point, Quaternion.identity);
-        marker2.transform.position = go.transform.position;
+        Destroy(go2); // destroy clones
+        go2 = Instantiate(marker2, hit.point, Quaternion.identity); // creates marker2 at raycast hit point
+        
 
-        return marker2.transform.position;
+        return go2.transform.position;
     }
 
+    // Pressing the move button
     public void ChangeState()
     {
-        if (move.GetStateDown(pose.inputSource))
+        if (move.GetStateDown(pose.inputSource)) // pressed
         {
-            SetLaser(true);
+            ln.enabled = true;
         }
 
-        if (move.GetStateUp(pose.inputSource))
+        if (move.GetStateUp(pose.inputSource)) // lifted
         {
-            SetLaser(false);
+            ln.enabled = false;
             SetDirection(); 
             isMoving = true;
         }
