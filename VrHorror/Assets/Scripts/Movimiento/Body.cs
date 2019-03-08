@@ -46,14 +46,7 @@ public class Body : MonoBehaviour
         if (other.tag == "STAHP")
         {
             dc.isMoving = false;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "STAHP")
-        {
-            dc.isMoving = false;
+            Destroy(dc.go2); // destroy marker2 at collision
         }
     }
 
