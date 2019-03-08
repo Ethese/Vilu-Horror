@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 //using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine;
+using Valve.VR;
 
 public class Menu_Pausa : MonoBehaviour
 {
-    public static bool Pausado=false;
+    public SteamVR_Action_Boolean pausa;
+    public static bool pausado=false;
     public GameObject Menu;
    
 
@@ -16,9 +18,9 @@ public class Menu_Pausa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (pausa.GetStateDown(SteamVR_Input_Sources.Any))
         {
-            if (Pausado)
+            if (pausado)
             {
                 VolverAlJuego();
             }
@@ -35,7 +37,7 @@ public class Menu_Pausa : MonoBehaviour
         Menu.SetActive(false);
         Time.timeScale = 1f;
         //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
-        Pausado = false;
+        pausado = false;
     }
 
     public void Pausa()
@@ -43,7 +45,7 @@ public class Menu_Pausa : MonoBehaviour
         Menu.SetActive(true);
         Time.timeScale = 0f;
         //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
-        Pausado = true;
+        pausado = true;
         
     }
 }
