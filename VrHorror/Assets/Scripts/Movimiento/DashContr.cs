@@ -51,6 +51,7 @@ public class DashContr : MonoBehaviour
         // Show Marker at direction
         if (Physics.Raycast(landingRay, out hit, distance))
         {
+            //Destroy(marker2); // Destroy previus marker2
             Destroy(go); // destroy clones
             go = Instantiate(marker, hit.point, Quaternion.identity); // set marker 1
             go.transform.position = hit.point;
