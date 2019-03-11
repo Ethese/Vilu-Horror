@@ -9,7 +9,8 @@ public class Menu_Pausa : MonoBehaviour
     public SteamVR_Action_Boolean pausa;
     public static bool pausado=false;
     public GameObject Menu;
-   
+    public GameObject Pointer;
+    public VRInputModule inputModule; 
 
     private void Start()
     {
@@ -34,6 +35,8 @@ public class Menu_Pausa : MonoBehaviour
 
     public void VolverAlJuego()
     {
+        Pointer.SetActive(false);
+        inputModule.enabled = false;
         Menu.SetActive(false);
         Time.timeScale = 1f;
         //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
@@ -42,6 +45,8 @@ public class Menu_Pausa : MonoBehaviour
 
     public void Pausa()
     {
+        Pointer.SetActive(true);
+        inputModule.enabled = true;
         Menu.SetActive(true);
         Time.timeScale = 0f;
         //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
