@@ -11,8 +11,7 @@ public class OpcioneMenu : MonoBehaviour
 
     //ScriptsMovimiento
     public MovementTouchpad movementTouchpd;
-    DashContr movementTpLeft;
-     public DashContr movementTpRight;
+    public DashContr movementTpRight;
 
     // Start is called before the first frame update
     void Start()
@@ -24,23 +23,22 @@ public class OpcioneMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (toggleLlanos.isOn)
-        {
-            toggleCheche.isOn = false;
-        }
-        else
-        {
-            toggleLlanos.isOn = false;
-        }
+
     }
 
     public void Toggle_Llanos_Changed(bool newValue)
     {
+        Debug.Log("Llanos activado");
         toggleCheche.isOn = false;
+        movementTpRight.enabled = true;
+        movementTouchpd.enabled = false;
     }
 
     public void Toggle_Cheche_Changed(bool newValue)
     {
+        Debug.Log("Cheche activado");
         toggleLlanos.isOn = false;
+        movementTpRight.enabled = false;
+        movementTouchpd.enabled = true;
     }
 }
