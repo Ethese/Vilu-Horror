@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using Valve.VR;
 
 public class SistemaInventario : MonoBehaviour
 {
+    public SteamVR_Action_Single squeeze;
     public GameObject inventory;
     private bool inventoryEnabled;
 
@@ -29,23 +31,23 @@ public class SistemaInventario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (squeeze.GetAxis(SteamVR_Input_Sources.Any) > 0)
         {
             inventoryEnabled = !inventoryEnabled;
         }
         if (inventoryEnabled == true)
         {
-            PausarJuego();
+            //PausarJuego();
             inventory.SetActive(true);
         }
         else
         {
-            Volver();
+           // Volver();
             inventory.SetActive(false);
         }
     }
 
-    private void PausarJuego()
+    /*private void PausarJuego()
     {
         //Mostrar Cursor
         Cursor.visible = true;
@@ -62,6 +64,7 @@ public class SistemaInventario : MonoBehaviour
         Time.timeScale = 1f;
         GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
     }
+    */
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Item")
