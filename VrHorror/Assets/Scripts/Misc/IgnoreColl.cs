@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class IgnoreColl : MonoBehaviour
 {
-    public string objName;
-
-    private Collider c1, c2;
+    public Collider c1, c2;
 
     public bool collided;
 
@@ -32,28 +30,25 @@ public class IgnoreColl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == objName)
+        if (collision.collider == c2)
         {
             collided = true;
-            c2 = collision.gameObject.GetComponent<Collider>();
         }
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == objName)
+        if (collision.collider == c2)
         {
             collided = true;
-            c2 = collision.gameObject.GetComponent<Collider>();
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == objName)
+        if (collision.collider == c2)
         {
             collided = false;
-            c2 = null;
         }
     }
 }
