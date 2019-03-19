@@ -7,8 +7,6 @@ public class Door : MonoBehaviour
 {
     public GameObject door;
     public Hand h;
-
-    public bool grabbed;
     
     // Start is called before the first frame update
     void Start()
@@ -26,9 +24,9 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Hand")
         {
-            h = other.gameObject.GetComponent<Hand>();
+            Debug.Log("touching");
 
-            if (h.grabbing.GetStateDown(h.pose.inputSource) || Input.GetKey("j"))
+            if (h.pressing || Input.GetKey("space"))
             {
                 door.transform.LookAt(other.transform);
             }
@@ -39,9 +37,8 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Hand")
         {
-            h = other.gameObject.GetComponent<Hand>();
 
-            if (h.grabbing.GetStateDown(h.pose.inputSource) || Input.GetKey("j"))
+            if (h.pressing)
             {
                 door.transform.LookAt(other.transform);
             }

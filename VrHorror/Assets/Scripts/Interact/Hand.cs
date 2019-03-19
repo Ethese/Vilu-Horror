@@ -7,6 +7,7 @@ public class Hand : MonoBehaviour {
 
     public SteamVR_Action_Boolean grabbing = null;
     public float vel;
+    public bool pressing;
 
     public SteamVR_Behaviour_Pose pose = null;
     private FixedJoint joint = null;
@@ -26,11 +27,13 @@ public class Hand : MonoBehaviour {
         if (grabbing.GetStateDown(pose.inputSource) || Input.GetKey("space"))
         {
             PickUp();
+            pressing = true;
         }
 
         if (grabbing.GetStateUp(pose.inputSource) || Input.GetKey("r"))
         {
             Drop();
+            pressing = false;
         }
     }
 
