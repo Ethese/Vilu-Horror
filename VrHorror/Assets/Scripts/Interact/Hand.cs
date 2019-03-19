@@ -8,7 +8,7 @@ public class Hand : MonoBehaviour {
     public SteamVR_Action_Boolean grabbing = null;
     public float vel;
 
-    private SteamVR_Behaviour_Pose pose = null;
+    public SteamVR_Behaviour_Pose pose = null;
     private FixedJoint joint = null;
     private Interact current = null;
     private List<Interact> contacts = new List<Interact>();
