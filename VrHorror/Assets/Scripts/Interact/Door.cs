@@ -15,7 +15,6 @@ public class Door : MonoBehaviour
     void Start()
     {
         h = hand.GetComponent<Hand>();
-        rotSpeed = 5f;
         grabbed = false;
     }
 
@@ -56,13 +55,10 @@ public class Door : MonoBehaviour
     {
         if (h.pressing)
         {
-            /*Vector3 dir = hand.transform.position - transform.position;
+            // Follow hand
+            Vector3 dir = new Vector3((hand.transform.position.x - transform.position.x), 0, (hand.transform.position.z - transform.position.z));
             Quaternion rotation = Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed);
-            */
-
-            
-
         }
     }
 

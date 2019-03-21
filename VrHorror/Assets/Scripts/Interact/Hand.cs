@@ -73,7 +73,7 @@ public class Hand : MonoBehaviour {
         {
             current.activeHand.Drop();
         }
-
+        
         // position
         current.transform.position = transform.position;
 
