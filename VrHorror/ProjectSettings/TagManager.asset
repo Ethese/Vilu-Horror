@@ -16,6 +16,7 @@ TagManager:
   - Stage3
   - finish
   - CABEZA
+  - Limit
   layers:
   - Default
   - TransparentFX
