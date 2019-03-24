@@ -6,24 +6,24 @@ using Valve.VR;
 public class Door : MonoBehaviour
 {
     public GameObject hand, limitA, limitB;
+    public Transform joint, startingPos, limitPos;
     public Hand h;
 
-    public float rotSpeed, rotMax, rotMin, rotationY;
-    public float y;
-    public bool grabbed, limit;
+    public float rotSpeed, rotMax, rotMin;
+    public bool grabbed, limit, closed, ready;
     
     // Start is called before the first frame update
     void Start()
     {
-        h = hand.GetComponent<Hand>();
+        startingPos = joint;
         grabbed = false;
-        y = 0;
+        ready = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (grabbed && !limit)
+        if (grabbed && ready)
         {
             DoorRotation();
         }
@@ -34,19 +34,21 @@ public class Door : MonoBehaviour
         if (other.tag == "Hand")
         {
             grabbed = true;
+            h = hand.GetComponent<Hand>();
         }
 
         if (other.gameObject.name == "LimitA")
         {
             Debug.Log("STOOOOP");
-            limit = true;
-            y = -1;
+            //closed = true;
+            ready = false;
         }
 
         if (other.gameObject.name == "LimitB")
         {
-            limit = true;
-            y = 1;
+            //limitPos = joint;
+            //limit = true;
+            ready = false;
         }
     }
 
@@ -54,7 +56,7 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Hand")
         {
-            //grabbed = true;
+            h = hand.GetComponent<Hand>();
         }
     }
 
@@ -63,13 +65,14 @@ public class Door : MonoBehaviour
         if (other.tag == "Hand")
         {
             grabbed = false;
+            ready = true;
         }
 
         if (other.gameObject.name == "LimitB")
         {
             limit = false;
-            y = 0;
         }
+
     }
 
 
@@ -78,18 +81,14 @@ public class Door : MonoBehaviour
         if (h.pressing)
         {
             // Follow hand
-            Vector3 dir = new Vector3((hand.transform.position.x - transform.position.x), 0, (hand.transform.position.z - transform.position.z));
+            Vector3 dir = new Vector3((hand.transform.position.x - joint.position.x), 0, (hand.transform.position.z - joint.position.z));
             Quaternion rotation = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed);
+            joint.rotation = Quaternion.Lerp(joint.rotation, rotation, rotSpeed);
         }
     }
 
     public void Clamp()
     {
-        if (limit)
-        {
-            transform.Rotate(Vector3.up, (y * rotSpeed) * Time.deltaTime);
-        }
+       
     }
-
 }
