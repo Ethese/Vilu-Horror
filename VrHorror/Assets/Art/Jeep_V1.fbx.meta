@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: bcccbe30da31e8e4ab09682962a868e5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Jeep-Asientodel
+    100002: Jeep-Asientodel.001
+    100004: Jeep-Asientotra
+    100006: Jeep-Bidon
+    100008: Jeep-Capot
+    100010: Jeep-Cuerpo
+    100012: Jeep-Parabrisas
+    100014: Jeep-Ruedaaux
+    100016: Jeep-Ruedadel
+    100018: Jeep-Ruedadel.001
+    100020: Jeep-Ruedadel.002
+    100022: Jeep-Ruedadel.003
+    100024: Jeep-Volante
+    100026: //RootNode
+    100028: Plane
+    100030: Sun
+    400000: Jeep-Asientodel
+    400002: Jeep-Asientodel.001
+    400004: Jeep-Asientotra
+    400006: Jeep-Bidon
+    400008: Jeep-Capot
+    400010: Jeep-Cuerpo
+    400012: Jeep-Parabrisas
+    400014: Jeep-Ruedaaux
+    400016: Jeep-Ruedadel
+    400018: Jeep-Ruedadel.001
+    400020: Jeep-Ruedadel.002
+    400022: Jeep-Ruedadel.003
+    400024: Jeep-Volante
+    400026: //RootNode
+    400028: Plane
+    400030: Sun
+    2100000: No Name
+    2300000: Jeep-Asientodel
+    2300002: Jeep-Asientodel.001
+    2300004: Jeep-Asientotra
+    2300006: Jeep-Bidon
+    2300008: Jeep-Capot
+    2300010: Jeep-Cuerpo
+    2300012: Jeep-Parabrisas
+    2300014: Jeep-Ruedaaux
+    2300016: Jeep-Ruedadel
+    2300018: Jeep-Ruedadel.001
+    2300020: Jeep-Ruedadel.002
+    2300022: Jeep-Ruedadel.003
+    2300024: Jeep-Volante
+    2300026: Plane
+    3300000: Jeep-Asientodel
+    3300002: Jeep-Asientodel.001
+    3300004: Jeep-Asientotra
+    3300006: Jeep-Bidon
+    3300008: Jeep-Capot
+    3300010: Jeep-Cuerpo
+    3300012: Jeep-Parabrisas
+    3300014: Jeep-Ruedaaux
+    3300016: Jeep-Ruedadel
+    3300018: Jeep-Ruedadel.001
+    3300020: Jeep-Ruedadel.002
+    3300022: Jeep-Ruedadel.003
+    3300024: Jeep-Volante
+    3300026: Plane
+    4300000: Plane
+    4300002: Jeep-Ruedaaux
+    4300004: Jeep-Bidon
+    4300006: Jeep-Capot
+    4300008: Jeep-Volante
+    4300010: Jeep-Parabrisas
+    4300012: Jeep-Asientotra
+    4300014: Jeep-Asientodel.001
+    4300016: Jeep-Asientodel
+    4300018: Jeep-Ruedadel.003
+    4300020: Jeep-Ruedadel.002
+    4300022: Jeep-Ruedadel.001
+    4300024: Jeep-Ruedadel
+    4300026: Jeep-Cuerpo
+    10800000: Sun
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

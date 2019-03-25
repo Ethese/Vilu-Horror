@@ -21,8 +21,6 @@ TagManager:
   - ObjetoSuelto
   - STAHP
   - UI
-  - WeaponManager
-  - Item
   layers:
   - Default
   - TransparentFX
@@ -33,8 +31,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Player
+  - Arboles
   - 
   - 
   - 
