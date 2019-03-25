@@ -21,8 +21,6 @@ TagManager:
   - ObjetoSuelto
   - STAHP
   - UI
-  - WeaponManager
-  - Item
   layers:
   - Default
   - TransparentFX
