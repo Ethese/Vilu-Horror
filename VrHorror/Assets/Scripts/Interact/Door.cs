@@ -6,7 +6,8 @@ using Valve.VR;
 public class Door : MonoBehaviour
 {
     public GameObject hand, limitA, limitB;
-    public Transform joint, startingPos, limitPos;
+    public Transform joint;
+    public Vector3 startingPos, limitPos;
     public Hand h;
 
     public float rotSpeed, rotMax, rotMin;
@@ -15,7 +16,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startingPos = joint;
+        startingPos = joint.position;
         grabbed = false;
         ready = true;
     }
@@ -46,8 +47,7 @@ public class Door : MonoBehaviour
 
         if (other.gameObject.name == "LimitB")
         {
-            //limitPos = joint;
-            //limit = true;
+            limitPos = joint.position;
             ready = false;
         }
     }
@@ -72,7 +72,6 @@ public class Door : MonoBehaviour
         {
             limit = false;
         }
-
     }
 
 
@@ -85,10 +84,5 @@ public class Door : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(dir);
             joint.rotation = Quaternion.Lerp(joint.rotation, rotation, rotSpeed);
         }
-    }
-
-    public void Clamp()
-    {
-       
     }
 }
