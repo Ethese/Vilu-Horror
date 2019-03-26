@@ -5,20 +5,25 @@ using Valve.VR;
 
 public class Door : MonoBehaviour
 {
-    public GameObject hand, limitA, limitB;
-    public Transform joint;
-    public Vector3 startingPos, limitPos;
-    public Hand h;
+    public GameObject hand, limitA, limitB, door;
+    public Transform pillar, joint;
+    public Vector3 startingPos;
+    public Hand handScript;
+    public Quaternion mainYRotation;
+    public HingeJoint hJoint;
 
-    public float rotSpeed, rotMax, rotMin;
-    public bool grabbed, limit, closed, ready;
+    public float rotSpeed;
+    public bool grabbed, ready;
     
     // Start is called before the first frame update
     void Start()
     {
-        startingPos = joint.position;
+        hJoint = transform.parent.GetComponent<HingeJoint>();
+        startingPos = door.transform.localPosition;
+        mainYRotation = door.transform.localRotation;
         grabbed = false;
         ready = true;
+        door.transform.parent = pillar;
     }
 
     // Update is called once per frame
@@ -35,19 +40,17 @@ public class Door : MonoBehaviour
         if (other.tag == "Hand")
         {
             grabbed = true;
-            h = hand.GetComponent<Hand>();
+            handScript = hand.GetComponent<Hand>();
         }
 
         if (other.gameObject.name == "LimitA")
         {
             Debug.Log("STOOOOP");
-            //closed = true;
             ready = false;
         }
 
         if (other.gameObject.name == "LimitB")
         {
-            limitPos = joint.position;
             ready = false;
         }
     }
@@ -56,7 +59,7 @@ public class Door : MonoBehaviour
     {
         if (other.tag == "Hand")
         {
-            h = hand.GetComponent<Hand>();
+            handScript = hand.GetComponent<Hand>();
         }
     }
 
@@ -66,23 +69,27 @@ public class Door : MonoBehaviour
         {
             grabbed = false;
             ready = true;
-        }
-
-        if (other.gameObject.name == "LimitB")
-        {
-            limit = false;
+            ResetDoor();
         }
     }
-
-
+    
     public void DoorRotation()
     {
-        if (h.pressing)
+        if (handScript.pressing)
         {
             // Follow hand
             Vector3 dir = new Vector3((hand.transform.position.x - joint.position.x), 0, (hand.transform.position.z - joint.position.z));
             Quaternion rotation = Quaternion.LookRotation(dir);
             joint.rotation = Quaternion.Lerp(joint.rotation, rotation, rotSpeed);
         }
+
+        door.transform.parent = joint;
+        hJoint.connectedBody = null;
+    }
+
+    public void ResetDoor()
+    {
+        door.transform.parent = pillar;
+        hJoint.connectedBody = joint.gameObject.GetComponent<Rigidbody>();
     }
 }
