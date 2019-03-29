@@ -6,7 +6,7 @@ using Valve.VR;
 public class DashContr : MonoBehaviour
 {
     public SteamVR_Action_Boolean move = null;
-    private SteamVR_Behaviour_Pose pose = null;
+    public SteamVR_Behaviour_Pose pose = null;
 
     public Body b;
 

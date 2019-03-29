@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Body : MonoBehaviour
 {
+    #region Scripts Reference
     public DashContr dc;
     public Sound stealth;
     public DashSprint ds;
+    #endregion
 
     public Transform parent;
-
     public float speed;
 
     // Start is called before the first frame update
@@ -46,7 +47,7 @@ public class Body : MonoBehaviour
         if (other.tag == "STAHP")
         {
             dc.isMoving = false;
-            Destroy(other.gameObject); // destroy marker2 at collision
+            Destroy(other.gameObject); // destroy marker2 on collision
         }
     }
 
