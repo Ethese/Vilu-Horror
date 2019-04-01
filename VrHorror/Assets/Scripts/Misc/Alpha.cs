@@ -10,6 +10,7 @@ public class Alpha : MonoBehaviour {
     public GameObject obj;
     public float temps;
     
+
     private void Update()
     {
         if (obj)
