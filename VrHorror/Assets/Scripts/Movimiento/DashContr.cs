@@ -6,7 +6,7 @@ using Valve.VR;
 public class DashContr : MonoBehaviour
 {
     public SteamVR_Action_Boolean move = null;
-    private SteamVR_Behaviour_Pose pose = null;
+    public SteamVR_Behaviour_Pose pose = null;
 
     public Body b;
 
@@ -63,20 +63,18 @@ public class DashContr : MonoBehaviour
     {
         Destroy(go2); // destroy clones
         go2 = Instantiate(marker2, hit.point, Quaternion.identity); // creates marker2 at raycast hit point
-        
-
         return go2.transform.position;
     }
 
     // Pressing the move button
     public void ChangeState()
     {
-        if (move.GetStateDown(pose.inputSource)) // pressed
+        if (move.GetStateDown(pose.inputSource) || Input.GetKeyDown("space")) // pressed
         {
             ln.enabled = true;
         }
 
-        if (move.GetStateUp(pose.inputSource)) // lifted
+        if (move.GetStateUp(pose.inputSource) || Input.GetKeyUp("space")) // lifted
         {
             ln.enabled = false;
             SetDirection(); 

@@ -5,42 +5,62 @@ using Valve.VR;
 
 public class Hand : MonoBehaviour {
 
+    // VR Inputs
     public SteamVR_Action_Boolean grabbing = null;
-    public float vel;
-
+    public SteamVR_Action_Boolean move = null;
     private SteamVR_Behaviour_Pose pose = null;
+    
+    // Interaction
     private FixedJoint joint = null;
     private Interact current = null;
     private List<Interact> contacts = new List<Interact>();
+    
+    // RayCast
+    public RaycastHit hit;
+    public Ray landingRay;
+    private LineRenderer ln;
 
+    // Reference
+    public Hand otherHand;
+    public Player pl;
+    private Transform pointer;
+
+    // Markers
+    [HideInInspector]
+    public GameObject go, go2;
+    public GameObject marker, marker2;
+
+    // parameters
+    public float distance;
+    public bool pressing, isUsing;
+    
     private void Awake()
     {
         pose = GetComponent<SteamVR_Behaviour_Pose>();
+        ln = GetComponent<LineRenderer>();
         joint = GetComponent<FixedJoint>();
+        pointer = transform;
     }
     
 	// Update is called once per frame
 	void Update () {
-        //txt.text = "FORCE: " + pose.GetVelocity().magnitude;
 
-        if (grabbing.GetStateDown(pose.inputSource))
-        {
-            PickUp();
-        }
+        ChangeState();
+        Interacted();
 
-        if (grabbing.GetStateUp(pose.inputSource))
+        if (ln.enabled)
         {
-            Drop();
+            SetLaser();
         }
     }
 
+    #region Triggers
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("ObjetoSuelto"))
         {
             return;
         }
-
         contacts.Add(other.gameObject.GetComponent<Interact>());
     }
 
@@ -50,10 +70,11 @@ public class Hand : MonoBehaviour {
         {
             return;
         }
-
         contacts.Remove(other.gameObject.GetComponent<Interact>());
     }
+    #endregion
 
+    #region Interact
     public void PickUp()
     {
         // get nearest
@@ -77,7 +98,7 @@ public class Hand : MonoBehaviour {
         // attach
         Rigidbody target = current.GetComponent<Rigidbody>();
         joint.connectedBody = target;
-        
+
 
         // set active hand
         current.activeHand = this;
@@ -95,7 +116,7 @@ public class Hand : MonoBehaviour {
         Rigidbody target = current.GetComponent<Rigidbody>();
         target.velocity = pose.GetVelocity();
         target.angularVelocity = pose.GetAngularVelocity();
-        
+
         // detach
         joint.connectedBody = null;
 
@@ -103,6 +124,21 @@ public class Hand : MonoBehaviour {
         current.activeHand = null;
         current = null;
 
+    }
+
+    public void Interacted()
+    {
+        if (grabbing.GetStateDown(pose.inputSource) || Input.GetKeyDown("r"))
+        {
+            PickUp();
+            pressing = true;
+        }
+
+        if (grabbing.GetStateUp(pose.inputSource) || Input.GetKeyUp("r"))
+        {
+            Drop();
+            pressing = false;
+        }
     }
 
     private Interact GetNearest()
@@ -124,4 +160,49 @@ public class Hand : MonoBehaviour {
 
         return nearest;
     }
+
+    #endregion
+
+    #region Movement
+    public void SetLaser()
+    {
+        // Ray direction
+        landingRay = new Ray(pointer.position, pointer.forward);
+
+        // Show Marker at direction
+        if (Physics.Raycast(landingRay, out hit, distance))
+        {
+            //Destroy(marker2); // Destroy previus marker2
+            Destroy(go); // destroy clones
+            go = Instantiate(marker, hit.point, Quaternion.identity); // set marker 1 at raycast hit point
+            go.transform.position = hit.point; // marker1 follows raycast hit point position
+        }
+    }
+
+    // sets cameraRig target position at marker2
+    public Vector3 SetDirection()
+    {
+        Destroy(go2); // destroy clones
+        go2 = Instantiate(marker2, hit.point, Quaternion.identity); // creates marker2 at raycast hit point
+        return go2.transform.position;
+    }
+
+    // Pressing the move button
+    public void ChangeState()
+    {
+        if (move.GetStateDown(pose.inputSource) && !otherHand.isUsing || Input.GetKeyDown("space")) // pressed
+        {
+            ln.enabled = true;
+            isUsing = true;
+        }
+
+        if (move.GetStateUp(pose.inputSource) || Input.GetKeyUp("space")) // lifted
+        {
+            ln.enabled = false;
+            SetDirection();
+            pl.isMoving = true;
+            isUsing = false;
+        }
+    }
+    #endregion
 }

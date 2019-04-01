@@ -21,6 +21,8 @@ TagManager:
   - ObjetoSuelto
   - STAHP
   - UI
+  - CABEZA
+  - Limit
   layers:
   - Default
   - TransparentFX
@@ -31,9 +33,9 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
+  - Door
+  - Player
+  - wall
   - 
   - 
   - 

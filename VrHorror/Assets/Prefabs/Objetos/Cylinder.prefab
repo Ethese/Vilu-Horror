@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 3629242329708526244}
   - component: {fileID: 716363484852650666}
   - component: {fileID: 5918493726203359516}
+  - component: {fileID: 7327134260337610957}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: ObjetoSuelto
@@ -238,6 +239,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7327134260337610957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5383170789428682535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c5db0b367598e4c9a63afcb5c450e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objName: CABEZA
+  collided: 0
 --- !u!1 &6712468360794334468
 GameObject:
   m_ObjectHideFlags: 0
