@@ -21,6 +21,7 @@ TagManager:
   - ObjetoSuelto
   - STAHP
   - UI
+  - car
   layers:
   - Default
   - TransparentFX
