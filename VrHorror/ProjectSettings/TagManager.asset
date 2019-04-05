@@ -4,30 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - projectile
   - FxTemporaire
-  - hand
-  - savePoint
-  - checkPoint
-  - body
-  - Lluvia
-  - Fire
-  - Hand
-  - Player Stealth
-  - Body
-  - Stage3
-  - finish
-  - Stage2
-  - ObjetoSuelto
-  - STAHP
-  - UI
-<<<<<<< HEAD
-  - CABEZA
-  - Limit
-||||||| merged common ancestors
-=======
-  - car
->>>>>>> Cheche
+  - projectile
   layers:
   - Default
   - TransparentFX
@@ -37,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Door
-  - Player
-  - wall
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
