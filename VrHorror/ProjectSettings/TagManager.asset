@@ -21,8 +21,13 @@ TagManager:
   - ObjetoSuelto
   - STAHP
   - UI
+<<<<<<< HEAD
   - CABEZA
   - Limit
+||||||| merged common ancestors
+=======
+  - car
+>>>>>>> Cheche
   layers:
   - Default
   - TransparentFX

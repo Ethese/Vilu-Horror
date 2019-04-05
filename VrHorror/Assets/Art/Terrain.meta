@@ -1,5 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ca60b08b57e057141a20ad31da4b772c
+||||||| merged common ancestors
+guid: 438681fef9c2edc418bb36bd33a8ae10
+=======
+guid: 00eaa74118aaf034bae64758794e0813
+>>>>>>> Cheche
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
