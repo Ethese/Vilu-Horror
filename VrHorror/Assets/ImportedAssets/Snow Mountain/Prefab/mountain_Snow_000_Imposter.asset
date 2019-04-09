@@ -13,26 +13,27 @@ MonoBehaviour:
   m_Name: mountain_Snow_000_Imposter
   m_EditorClassIdentifier: 
   AssetReference: {fileID: 130108, guid: a0caed2329b1ff545b145d48d6ef85d7, type: 3}
-  AtlasResolution: 2048
+  AtlasResolution: 4096
   BaseTexture: {fileID: 2800000, guid: 1c31c61d7d5f1324a9f0d466e3f394b3, type: 3}
-  BillboardAsset: {fileID: 0}
-  Frames: 12
+  BillboardAsset: {fileID: 226998782663182234}
+  Frames: 4
   IsHalf: 1
   Material: {fileID: 2100000, guid: 55a6bd5533378754c87927c8dc287f5f, type: 2}
-  BillboardRendererMaterial: {fileID: 0}
-  Mesh: {fileID: 43718007851404514}
-  Offset: {x: -4.9999847, y: 40.65269, z: -5}
+  BillboardRendererMaterial: {fileID: 2100000, guid: 7a857b6220f76b4449d3c78e3c35efc9,
+    type: 2}
+  Mesh: {fileID: 43787841888937264}
+  Offset: {x: -0.5, y: 4.0652685, z: -0.5}
   PackTexture: {fileID: 2800000, guid: 171b84b36f813ff4a8dfea862682ca2b, type: 3}
-  Prefab: {fileID: 3639925300639351365, guid: be084119c5f33184ca10397f00d63e8a, type: 3}
+  Prefab: {fileID: 0}
   PrefabSuffix: IMP
-  Radius: 178.65335
---- !u!43 &43718007851404514
+  Radius: 17.202328
+--- !u!43 &43787841888937264
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImposterQuad_178.7
+  m_Name: ImposterQuad_17.2
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -174,8 +175,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: -4.9999847, y: 40.65269, z: -5}
-    m_Extent: {x: 178.65335, y: 178.65335, z: 178.65335}
+    m_Center: {x: -0.5, y: 4.0652685, z: -0.5}
+    m_Extent: {x: 17.202328, y: 17.202328, z: 17.202328}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -186,3 +187,28 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!226 &226998782663182234
+BillboardAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BillboardAsset
+  serializedVersion: 2
+  width: 17.202328
+  bottom: 8.601164
+  height: 17.202328
+  imageTexCoords:
+  - {x: 0.5, y: 0.5, z: 0, w: 0}
+  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 1, y: 0, z: 0, w: 0}
+  - {x: 1, y: 1, z: 0, w: 0}
+  - {x: 0, y: 1, z: 0, w: 0}
+  vertices:
+  - {x: 0.5, y: 0.5}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 1, y: 1}
+  - {x: 0, y: 1}
+  indices: 020001000000030002000000040003000000010004000000
+  material: {fileID: 2100000, guid: 7a857b6220f76b4449d3c78e3c35efc9, type: 2}
