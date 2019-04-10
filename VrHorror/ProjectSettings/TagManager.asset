@@ -14,6 +14,9 @@ TagManager:
   - car
   - savePoint
   - WeaponManager
+  - STAHP
+  - floor
+  - ObjetoSuelto
   layers:
   - Default
   - TransparentFX
