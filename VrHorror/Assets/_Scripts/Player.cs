@@ -13,12 +13,13 @@ public class Player : MonoBehaviour
     public Hand leftHand;
     public Hand rightHand;
     private Hand currentHand;
-    
+
     // References
     private Transform parent;
+    public float leftSpeed;
+    public float rightSpeed;
 
     // Movement
-    public float distance;
     public bool isMoving;
     public float speed;
     #endregion
@@ -29,11 +30,15 @@ public class Player : MonoBehaviour
         stealth = this.GetComponent<Sound>();
         currentHand = null;
         parent = transform.parent;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        leftSpeed = leftHand.handSpeed;
+        rightSpeed = rightHand.handSpeed;
+
         GetHand(); // get current hand using button
 
         if (isMoving)
@@ -45,6 +50,8 @@ public class Player : MonoBehaviour
         {
             stealth.Still(); // Hidden
         }
+
+        Sprint();
     }
 
     #region Triggers
@@ -52,8 +59,8 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "STAHP")
         {
-            isMoving = false;
             Destroy(other.gameObject); // destroy marker2 on collision
+            isMoving = false;
         }
     }
     #endregion
@@ -63,6 +70,7 @@ public class Player : MonoBehaviour
     {
         float moving = speed * Time.deltaTime;
         parent.localPosition = Vector3.MoveTowards(new Vector3(parent.localPosition.x, parent.localPosition.y, parent.localPosition.z), target, moving);
+        Debug.Log(currentHand.SetDirection());
     }
 
     public void GetHand()
@@ -70,11 +78,26 @@ public class Player : MonoBehaviour
         if (rightHand.isUsing)
         {
             currentHand = rightHand;
+            leftHand.isUsing = false;
         }
 
         if (leftHand.isUsing)
         {
             currentHand = leftHand;
+            rightHand.isUsing = false;
+        }
+    }
+
+    public void Sprint()
+    {
+        if (rightSpeed > 6f && leftSpeed > 6f)
+        {
+            float extraSpeed = rightSpeed + leftSpeed;
+            speed = speed + extraSpeed * 0.1f;
+        }
+        else
+        {
+            speed = 3;
         }
     }
     #endregion

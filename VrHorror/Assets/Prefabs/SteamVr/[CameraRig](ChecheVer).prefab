@@ -95,8 +95,20 @@ MonoBehaviour:
   grabbing:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
-  txt: {fileID: 0}
-  vel: 0
+  move:
+    actionPath: 
+    needsReinit: 0
+  otherHand: {fileID: 0}
+  pl: {fileID: 0}
+  go: {fileID: 0}
+  go2: {fileID: 0}
+  marker: {fileID: 0}
+  marker2: {fileID: 0}
+  distance: 0
+  handDistance: 0
+  handSpeed: 0
+  pressing: 0
+  isUsing: 0
 --- !u!135 &7589570254243122848
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -790,11 +802,11 @@ GameObject:
   - component: {fileID: 1995477535}
   - component: {fileID: 1995477536}
   - component: {fileID: 8330374121302817823}
+  - component: {fileID: 695132496899826794}
   - component: {fileID: 5536509137499979702}
   - component: {fileID: 2249662661238327920}
   - component: {fileID: 1241169303271832065}
   - component: {fileID: 1436096825636861141}
-  - component: {fileID: 695132496899826794}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Hand
@@ -956,6 +968,35 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &695132496899826794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995477534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17a1f1250165234a9e80e39cd3bd024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbing:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  move:
+    actionPath: 
+    needsReinit: 0
+  otherHand: {fileID: 0}
+  pl: {fileID: 0}
+  go: {fileID: 0}
+  go2: {fileID: 0}
+  marker: {fileID: 0}
+  marker2: {fileID: 0}
+  distance: 0
+  handDistance: 0
+  handSpeed: 0
+  pressing: 0
+  isUsing: 0
 --- !u!114 &5536509137499979702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,10 +1012,14 @@ MonoBehaviour:
   move:
     actionPath: /actions/default/in/Teleport
     needsReinit: 0
+  pose: {fileID: 0}
   b: {fileID: 0}
   distance: 20
+  isMoving: 0
   marker: {fileID: 0}
   marker2: {fileID: 0}
+  go: {fileID: 0}
+  go2: {fileID: 0}
   pointer: {fileID: 1995477535}
 --- !u!135 &2249662661238327920
 SphereCollider:
@@ -1019,23 +1064,6 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &695132496899826794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995477534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17a1f1250165234a9e80e39cd3bd024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabbing:
-    actionPath: /actions/default/in/GrabPinch
-    needsReinit: 0
-  txt: {fileID: 0}
-  vel: 0
 --- !u!1 &2003610236
 GameObject:
   m_ObjectHideFlags: 0

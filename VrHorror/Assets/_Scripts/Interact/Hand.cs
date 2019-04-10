@@ -9,12 +9,12 @@ public class Hand : MonoBehaviour {
     public SteamVR_Action_Boolean grabbing = null;
     public SteamVR_Action_Boolean move = null;
     private SteamVR_Behaviour_Pose pose = null;
-    
+
     // Interaction
     private FixedJoint joint = null;
     private Interact current = null;
     private List<Interact> contacts = new List<Interact>();
-    
+
     // RayCast
     public RaycastHit hit;
     public Ray landingRay;
@@ -31,20 +31,21 @@ public class Hand : MonoBehaviour {
     public GameObject marker, marker2;
 
     // parameters
-    public float distance;
+    public float distance, handDistance, handSpeed;
     public bool pressing, isUsing;
-    
+
     private void Awake()
     {
         pose = GetComponent<SteamVR_Behaviour_Pose>();
         ln = GetComponent<LineRenderer>();
         joint = GetComponent<FixedJoint>();
         pointer = transform;
+        ln.enabled = false;
     }
-    
-	// Update is called once per frame
-	void Update () {
 
+    // Update is called once per frame
+    void Update()
+    {
         ChangeState();
         Interacted();
 
@@ -52,6 +53,12 @@ public class Hand : MonoBehaviour {
         {
             SetLaser();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        handDistance = Vector3.Distance(transform.position, otherHand.transform.position);
+        handSpeed = pose.GetAngularVelocity().magnitude;
     }
 
     #region Triggers
@@ -98,8 +105,7 @@ public class Hand : MonoBehaviour {
         // attach
         Rigidbody target = current.GetComponent<Rigidbody>();
         joint.connectedBody = target;
-
-
+        
         // set active hand
         current.activeHand = this;
     }
@@ -123,7 +129,6 @@ public class Hand : MonoBehaviour {
         // clear
         current.activeHand = null;
         current = null;
-
     }
 
     public void Interacted()
@@ -157,10 +162,8 @@ public class Hand : MonoBehaviour {
                 nearest = inter;
             }
         }
-
         return nearest;
     }
-
     #endregion
 
     #region Movement
@@ -172,18 +175,21 @@ public class Hand : MonoBehaviour {
         // Show Marker at direction
         if (Physics.Raycast(landingRay, out hit, distance))
         {
-            //Destroy(marker2); // Destroy previus marker2
             Destroy(go); // destroy clones
             go = Instantiate(marker, hit.point, Quaternion.identity); // set marker 1 at raycast hit point
             go.transform.position = hit.point; // marker1 follows raycast hit point position
+        }
+        else
+        {
+            Destroy(go);
         }
     }
 
     // sets cameraRig target position at marker2
     public Vector3 SetDirection()
     {
-        Destroy(go2); // destroy clones
-        go2 = Instantiate(marker2, hit.point, Quaternion.identity); // creates marker2 at raycast hit point
+        Destroy(go2);
+        go2 = Instantiate(marker2, go.transform.position, Quaternion.identity); // creates marker2 at raycast hit point
         return go2.transform.position;
     }
 
@@ -198,11 +204,14 @@ public class Hand : MonoBehaviour {
 
         if (move.GetStateUp(pose.inputSource) || Input.GetKeyUp("space")) // lifted
         {
-            ln.enabled = false;
             SetDirection();
             pl.isMoving = true;
+            ln.enabled = false;
             isUsing = false;
         }
     }
+    #endregion
+
+    #region Methods
     #endregion
 }
