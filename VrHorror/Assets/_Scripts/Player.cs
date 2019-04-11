@@ -16,21 +16,23 @@ public class Player : MonoBehaviour
 
     // References
     private Transform parent;
+    private AudioSource aud;
     public float leftSpeed;
     public float rightSpeed;
 
     // Movement
     public bool isMoving;
     public float speed;
+    public float time;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        stealth = this.GetComponent<Sound>();
+        stealth = GetComponent<Sound>();
         currentHand = null;
         parent = transform.parent;
-
+        aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,11 +45,14 @@ public class Player : MonoBehaviour
 
         if (isMoving)
         {
+            time = 1 * Time.deltaTime;
+            SoundCont();
             stealth.Moving(speed * 1.5f); // aumentar radio 
             Move(currentHand.SetDirection());
         }
         else
         {
+            aud.Stop();
             stealth.Still(); // Hidden
         }
 
@@ -98,6 +103,14 @@ public class Player : MonoBehaviour
         else
         {
             speed = 3;
+        }
+    }
+
+    public void SoundCont()
+    {
+        if (!aud.isPlaying)
+        {
+            aud.Play();
         }
     }
     #endregion

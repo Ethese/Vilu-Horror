@@ -27,7 +27,6 @@ namespace vida
             currentLifes = startingLifes;
             uiVida.text = ("Vida: " + currentHealth);
             uiVidas.text = ("Vidas: " + currentLifes);
-
         }
 
         private void Update()

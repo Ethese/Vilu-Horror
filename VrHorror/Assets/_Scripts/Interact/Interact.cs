@@ -19,9 +19,8 @@ public class Interact : MonoBehaviour {
     {
         text = GetComponentInChildren<TextMesh>();
         s = GetComponent<Sound>();
-
-        text.text = string.Empty;
         examined = false;
+        text.text = string.Empty;
     }
 
     private void Update()
@@ -93,5 +92,4 @@ public class Interact : MonoBehaviour {
     {
         velocity = vel.magnitude; // get velocity from hand velocity
     }
-
 }

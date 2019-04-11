@@ -6,10 +6,12 @@ using vida;
 public class Checkpoint : MonoBehaviour
 {
     public VidaJugador vidaPlayer;
-
+    
     public Renderer rnd;
     public Material checkpointOff;
     public Material checkpointOn;
+
+    public bool check;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,6 @@ public class Checkpoint : MonoBehaviour
         {
             cp.CheckpointOff();
         }
-
         rnd.material = checkpointOn;
     }
 
@@ -44,6 +45,7 @@ public class Checkpoint : MonoBehaviour
                 vidaPlayer.SetRespawnPoint(transform.position);
                 vidaPlayer.SetRespawnPoint(transform.position);
                 CheckpointOn();
+                check = true;
             }
         }
         if(tag.Equals("checkPoint"))
@@ -52,6 +54,7 @@ public class Checkpoint : MonoBehaviour
             {
                 vidaPlayer.SetRespawnPoint(transform.position);
                 CheckpointOn();
+                check = true;
             }
         }
     }
