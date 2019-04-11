@@ -11,14 +11,16 @@ public class StopDriving : MonoBehaviour
     public Animator anim;
     public Animator anim2;
 
+    private void Start()
+    {
+        anim.SetTrigger("FadeIn");
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "car")
         {
             carAi.m_Driving = false;
             Debug.Log("choco");
-            RigDriving.SetActive(false);
-            Rigstanding.SetActive(true);
             StartCoroutine(Bajarse1());
             Debug.Log("asd");
         }
@@ -29,18 +31,23 @@ public class StopDriving : MonoBehaviour
         //This is a coroutine
         anim.SetTrigger("FadeOut");
         Debug.Log("Inicio");
-
         yield return new WaitForSeconds(3f);    //Wait one frame
         StartCoroutine(Bajarse2());
 
-        Debug.Log("End Wait() function and the time is: " + Time.time);
     }
     IEnumerator Bajarse2()
     {
         //This is a coroutine
-        anim2.SetTrigger("FadeIn");
         Debug.Log("Inicio");
-
+        RigDriving.SetActive(false);
+        Rigstanding.SetActive(true);
+        yield return new WaitForSeconds(3f);    //Wait one frame
+        StartCoroutine(ActivarCamara());
+    }
+    IEnumerator ActivarCamara()
+    {
+        //This is a coroutine
+        anim2.SetTrigger("FadeIn");
         yield return new WaitForSeconds(3f);    //Wait one frame
 
 
