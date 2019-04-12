@@ -5722,6 +5722,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5355475216781393727, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7eedb85332e46134eace701be001f539, type: 2}
     - target: {fileID: 5355475217147159317, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5787,11 +5792,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2045095003}
-    - target: {fileID: 5355475216781393727, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
+    - target: {fileID: 5355475215578076538, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7eedb85332e46134eace701be001f539, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355475215578076538, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac6068cdb66e0345a3655e5ee3b4735, type: 3}
 --- !u!1 &1510459948 stripped
@@ -7814,6 +7824,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5355475216781393727, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7eedb85332e46134eace701be001f539, type: 2}
     - target: {fileID: 5355475217147159317, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7879,11 +7894,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 7523877249226965021}
-    - target: {fileID: 5355475216781393727, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7eedb85332e46134eace701be001f539, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac6068cdb66e0345a3655e5ee3b4735, type: 3}
 --- !u!1 &1897657752 stripped
