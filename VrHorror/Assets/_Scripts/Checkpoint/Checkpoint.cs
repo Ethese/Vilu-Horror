@@ -40,7 +40,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (tag.Equals("savePoint"))
         {
-            if (other.tag.Equals("hand"))
+            if (other.tag.Equals("Hand"))
             {
                 vidaPlayer.SetRespawnPoint(transform.position);
                 vidaPlayer.SetRespawnPoint(transform.position);
@@ -48,9 +48,15 @@ public class Checkpoint : MonoBehaviour
                 check = true;
             }
         }
+
+        if (other.tag == "Body")
+        {
+            check = true;
+        }
+
         if(tag.Equals("checkPoint"))
         {
-            if (other.tag.Equals("body"))
+            if (other.tag.Equals("Body"))
             {
                 vidaPlayer.SetRespawnPoint(transform.position);
                 CheckpointOn();

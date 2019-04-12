@@ -5,22 +5,26 @@ using UnityEngine;
 public class Events : MonoBehaviour
 {
     public Checkpoint cp,cp1,cp2,cp3;
+    public GameObject cinematicPl, player, light, _object;
 
-    public GameObject cinematicPl, player, light;
-
-    public AudioSource car1, car2, rain;
+    public AudioSource car1, car2, rain, ost;
+    public AudioClip ap;
+    public ENEMY en;
 
     public float time;
+    public bool tc, osting;
 
     // Start is called before the first frame update
     void Start()
     {
-        time = 2;
+        time = 2f;
+        osting = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        tc = _object.GetComponent<Interact>().touched;
         if (cinematicPl.activeSelf)
         {
             car1.Stop();
@@ -35,23 +39,31 @@ public class Events : MonoBehaviour
         if (cp.check || Input.GetKey("1"))
         {
             Phase1();
+            Debug.Log("Phase 1 Iniciated");
         }
 
         if (cp1.check || Input.GetKey("2"))
         {
             Phase2();
+            Debug.Log("Phase 2 Iniciated");
         }
 
         if (cp2.check || Input.GetKeyDown("3"))
         {
             Phase3();
+            Debug.Log("Phase 3 Iniciated");
         }
 
+        if (tc)
+        {
+            Phase4();
+            Debug.Log("Phase 4 Iniciated");
+        }
     }
 
     public void Timer()
     {
-        time -= 1 * Time.deltaTime;
+        time -= 1f * Time.deltaTime;
 
         if (time <= 0)
         {
@@ -72,5 +84,19 @@ public class Events : MonoBehaviour
     public void Phase3()
     {
         light.transform.Rotate(-90,0,0);
+    }
+
+    public void Phase4()
+    {
+        en.chasing = true;
+        if (en.time < 1f && en.time > 0.9f)
+        {
+            osting = false;
+        }
+        if (!osting)
+        {
+            ost.PlayOneShot(ap);
+            osting = true;
+        }
     }
 }
