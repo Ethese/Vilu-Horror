@@ -41,7 +41,7 @@ public class StopDriving : MonoBehaviour
         Debug.Log("Inicio");
         RigDriving.SetActive(false);
         Rigstanding.SetActive(true);
-        yield return new WaitForSeconds(3f);    //Wait one frame
+        yield return new WaitForSeconds(1f);    //Wait one frame
         StartCoroutine(ActivarCamara());
     }
     IEnumerator ActivarCamara()
