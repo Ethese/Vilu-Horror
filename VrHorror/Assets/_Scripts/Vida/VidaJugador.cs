@@ -12,7 +12,7 @@ namespace vida
         public int currentHealth;                                   // The current health the player has.
         public int startingLifes = 5;
         public int currentLifes;
-        bool isDead;                                                // Whether the player is dead.
+        public bool isDead;                                                // Whether the player is dead.
         public Text uiVida;
         public Text uiVidas;
         float timer;
@@ -27,7 +27,6 @@ namespace vida
             currentLifes = startingLifes;
             uiVida.text = ("Vida: " + currentHealth);
             uiVidas.text = ("Vidas: " + currentLifes);
-
         }
 
         private void Update()
@@ -68,7 +67,7 @@ namespace vida
             }
         }
 
-        void Death()
+        public void Death()
         {
             // Set the death flag so this function won't be called again.
             anim.SetTrigger("FadeOut");

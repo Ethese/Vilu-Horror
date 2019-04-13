@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using vida;
 
 public class Player : MonoBehaviour
 {
@@ -16,21 +17,24 @@ public class Player : MonoBehaviour
 
     // References
     private Transform parent;
+    private AudioSource aud;
+    public VidaJugador vida;
     public float leftSpeed;
     public float rightSpeed;
 
     // Movement
     public bool isMoving;
     public float speed;
+    public float time;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        stealth = this.GetComponent<Sound>();
+        stealth = GetComponent<Sound>();
         currentHand = null;
         parent = transform.parent;
-
+        aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,11 +47,14 @@ public class Player : MonoBehaviour
 
         if (isMoving)
         {
+            time = 1 * Time.deltaTime;
+            SoundCont();
             stealth.Moving(speed * 1.5f); // aumentar radio 
             Move(currentHand.SetDirection());
         }
         else
         {
+            aud.Stop();
             stealth.Still(); // Hidden
         }
 
@@ -61,6 +68,11 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject); // destroy marker2 on collision
             isMoving = false;
+        }
+
+        if (other.tag == "Finish")
+        {
+            vida.Death();
         }
     }
     #endregion
@@ -92,12 +104,20 @@ public class Player : MonoBehaviour
     {
         if (rightSpeed > 6f && leftSpeed > 6f)
         {
-            float extraSpeed = rightSpeed + leftSpeed;
-            speed = speed + extraSpeed * 0.1f;
+            float extraSpeed = 2;
+            speed = speed + extraSpeed;
         }
         else
         {
             speed = 3;
+        }
+    }
+
+    public void SoundCont()
+    {
+        if (!aud.isPlaying)
+        {
+            aud.Play();
         }
     }
     #endregion

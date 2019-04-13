@@ -6,10 +6,12 @@ using vida;
 public class Checkpoint : MonoBehaviour
 {
     public VidaJugador vidaPlayer;
-
+    
     public Renderer rnd;
     public Material checkpointOff;
     public Material checkpointOn;
+
+    public bool check;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,6 @@ public class Checkpoint : MonoBehaviour
         {
             cp.CheckpointOff();
         }
-
         rnd.material = checkpointOn;
     }
 
@@ -39,19 +40,27 @@ public class Checkpoint : MonoBehaviour
     {
         if (tag.Equals("savePoint"))
         {
-            if (other.tag.Equals("hand"))
+            if (other.tag.Equals("Hand"))
             {
                 vidaPlayer.SetRespawnPoint(transform.position);
                 vidaPlayer.SetRespawnPoint(transform.position);
                 CheckpointOn();
+                check = true;
             }
         }
+
+        if (other.tag == "Body")
+        {
+            check = true;
+        }
+
         if(tag.Equals("checkPoint"))
         {
-            if (other.tag.Equals("body"))
+            if (other.tag.Equals("Body"))
             {
                 vidaPlayer.SetRespawnPoint(transform.position);
                 CheckpointOn();
+                check = true;
             }
         }
     }
