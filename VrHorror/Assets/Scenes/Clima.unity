@@ -133,6 +133,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 198474193}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &76341411 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6501200906615863132, guid: 754eaca7c5243a943b21211d51b1c0ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 348463323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &78649114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5713182745881236491, guid: f1763085b6ab18646bf6bfda165c8cff,
@@ -4544,7 +4550,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1345530730}
+      objectReference: {fileID: 76341411}
     - target: {fileID: 5355475217147159317, guid: 7ac6068cdb66e0345a3655e5ee3b4735,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8523,12 +8529,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335400037}
   m_Mesh: {fileID: 43055951823800720, guid: 22003168dd37b8f44ae7fce07e534a83, type: 3}
---- !u!20 &1345530730 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5713182746138165223, guid: f1763085b6ab18646bf6bfda165c8cff,
-    type: 3}
-  m_PrefabInstance: {fileID: 144735194}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1354280181
 GameObject:
   m_ObjectHideFlags: 0
@@ -15970,7 +15970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carAi: {fileID: 4856091720747043788}
   RigDriving: {fileID: 7506695283565467045}
-  Rigstanding: {fileID: 78649114}
+  Rigstanding: {fileID: 1475653896}
   anim: {fileID: 173194628}
   anim2: {fileID: 1458392843}
 --- !u!4 &8583726512163352794
