@@ -133,6 +133,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 198474193}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &74189563 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 804144728485963420, guid: 754eaca7c5243a943b21211d51b1c0ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 348463323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &76341411 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6501200906615863132, guid: 754eaca7c5243a943b21211d51b1c0ab,
@@ -263,7 +269,7 @@ MonoBehaviour:
   shout: 0
   shout2: 0
   shout3: 0
-  speed: 0.1
+  speed: 0.5
   rotSpeed: 5
   time: 0
   ad: {fileID: 0}
@@ -2711,17 +2717,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Old_Asian_Business_Man
       objectReference: {fileID: 0}
+    - target: {fileID: 100094, guid: 0c2a7d400dea4d2448134f9d7390569b, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 0c2a7d400dea4d2448134f9d7390569b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 69.2
+      value: 262.09
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 0c2a7d400dea4d2448134f9d7390569b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.005
+      value: 8.17
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 0c2a7d400dea4d2448134f9d7390569b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 220.4
+      value: 192.15
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 0c2a7d400dea4d2448134f9d7390569b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5098,6 +5108,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1453629601}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &787311056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787311055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c5db0b367598e4c9a63afcb5c450e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c1: {fileID: 787311057}
+  c2: {fileID: 74189563}
+  collided: 0
+--- !u!65 &787311057 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6496894564417386504, guid: 4c6b6c768b857ff4e823317568593f35,
+    type: 3}
+  m_PrefabInstance: {fileID: 1453629601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &794646898
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,6 +6334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885070931110390894, guid: 036171d99aa7e7a4eae68ec313032395,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 036171d99aa7e7a4eae68ec313032395, type: 3}
@@ -7835,6 +7871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885070931110390894, guid: 036171d99aa7e7a4eae68ec313032395,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 036171d99aa7e7a4eae68ec313032395, type: 3}
@@ -11353,6 +11394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885070931110390894, guid: 036171d99aa7e7a4eae68ec313032395,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 036171d99aa7e7a4eae68ec313032395, type: 3}

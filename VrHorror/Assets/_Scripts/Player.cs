@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
 
         if (other.tag == "Finish")
         {
-            vida.Death();
+            Application.Quit();
         }
     }
     #endregion
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     {
         if (rightSpeed > 6f && leftSpeed > 6f)
         {
-            float extraSpeed = 2;
+            float extraSpeed = 1.5f;
             speed = speed + extraSpeed;
         }
         else
