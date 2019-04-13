@@ -46,6 +46,7 @@ public class Events : MonoBehaviour
 
         if (cp1.check || Input.GetKey("2"))
         {
+            Timer2();
             Phase2();
             Debug.Log("Phase 2 Iniciated");
         }
@@ -58,7 +59,6 @@ public class Events : MonoBehaviour
 
         if (tc || Input.GetKey("h"))
         {
-            Timer2();
             Phase4();
             Debug.Log("Phase 4 Iniciated");
         }
@@ -93,13 +93,12 @@ public class Events : MonoBehaviour
 
     public void Phase1()
     {
-        car2.Play();
+        //car2.Play();
     }
 
     public void Phase2()
     {
-        en.chasing = true;
-        if (time2 < 50.1f && time2 > 50f)
+        if (time2 < 1.1f && time2 > 1f)
         {
             osting = false;
         }
@@ -107,12 +106,12 @@ public class Events : MonoBehaviour
 
     public void Phase3()
     {
-        light.transform.Rotate(-90,0,0);
+        light.transform.Rotate(90,0,0);
         cp2.check = false;
     }
 
     public void Phase4()
     {
-        
+        en.chasing = true;
     }
 }
