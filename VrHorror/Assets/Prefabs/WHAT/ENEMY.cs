@@ -5,7 +5,7 @@ using UnityEngine;
 public class ENEMY : MonoBehaviour
 {
     public bool chasing, shout, shout2, shout3;
-    public float speed;
+    public float speed, rotSpeed;
     public float time;
 
     public AudioSource ad;
@@ -26,6 +26,8 @@ public class ENEMY : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Stalking();
+
         if (Input.GetKey("f"))
         {
             shout3 = false;
@@ -33,7 +35,6 @@ public class ENEMY : MonoBehaviour
 
         if (chasing || Input.GetKey("p"))
         {
-
             SoundCont();
             Sequence();
             an.SetBool("RUN", true);
@@ -91,10 +92,25 @@ public class ENEMY : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Body")
+        {
+            shout3 = false;
+        }
+    }
+
     public void Chase(Vector3 target)
     {
         speed += 0.01f;
         float moving = speed * Time.deltaTime;
         transform.localPosition = Vector3.MoveTowards(new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z), target, moving);
+    }
+
+    public void Stalking()
+    {
+        Vector3 dir = new Vector3((pl.transform.position.x - transform.position.x), 0, (pl.transform.position.z - transform.position.z));
+        Quaternion rotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotSpeed);
     }
 }

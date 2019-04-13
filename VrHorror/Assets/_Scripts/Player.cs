@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using vida;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     // References
     private Transform parent;
     private AudioSource aud;
+    public VidaJugador vida;
     public float leftSpeed;
     public float rightSpeed;
 
@@ -67,6 +69,11 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject); // destroy marker2 on collision
             isMoving = false;
         }
+
+        if (other.tag == "Finish")
+        {
+            vida.Death();
+        }
     }
     #endregion
 
@@ -97,8 +104,8 @@ public class Player : MonoBehaviour
     {
         if (rightSpeed > 6f && leftSpeed > 6f)
         {
-            float extraSpeed = rightSpeed + leftSpeed;
-            speed = speed + extraSpeed * 0.1f;
+            float extraSpeed = 2;
+            speed = speed + extraSpeed;
         }
         else
         {

@@ -11,19 +11,21 @@ public class Events : MonoBehaviour
     public AudioClip ap;
     public ENEMY en;
 
-    public float time;
+    public float time, time2;
     public bool tc, osting;
 
     // Start is called before the first frame update
     void Start()
     {
         time = 2f;
+        time2 = 0;
         osting = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         tc = _object.GetComponent<Interact>().touched;
         if (cinematicPl.activeSelf)
         {
@@ -54,16 +56,34 @@ public class Events : MonoBehaviour
             Debug.Log("Phase 3 Iniciated");
         }
 
-        if (tc)
+        if (tc || Input.GetKey("h"))
         {
+            Timer2();
             Phase4();
             Debug.Log("Phase 4 Iniciated");
+        }
+
+        if (!osting)
+        {
+            Debug.Log("Soundtrack ON");
+            ost.PlayOneShot(ap);
+            osting = true;
         }
     }
 
     public void Timer()
     {
         time -= 1f * Time.deltaTime;
+
+        if (time <= 0)
+        {
+            time = 0;
+        }
+    }
+
+    public void Timer2()
+    {
+        time2 += 1f * Time.deltaTime;
 
         if (time <= 0)
         {
@@ -78,25 +98,21 @@ public class Events : MonoBehaviour
 
     public void Phase2()
     {
-        rain.Stop();
+        en.chasing = true;
+        if (time2 < 50.1f && time2 > 50f)
+        {
+            osting = false;
+        }
     }
 
     public void Phase3()
     {
         light.transform.Rotate(-90,0,0);
+        cp2.check = false;
     }
 
     public void Phase4()
     {
-        en.chasing = true;
-        if (en.time < 1f && en.time > 0.9f)
-        {
-            osting = false;
-        }
-        if (!osting)
-        {
-            ost.PlayOneShot(ap);
-            osting = true;
-        }
+        
     }
 }
