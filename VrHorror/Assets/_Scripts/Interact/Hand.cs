@@ -173,7 +173,7 @@ public class Hand : MonoBehaviour {
         landingRay = new Ray(pointer.position, pointer.forward);
 
         // Show Marker at direction
-        if (Physics.Raycast(landingRay, out hit, distance))
+        if (Physics.Raycast(landingRay, out hit, 20f))
         {
             Destroy(go); // destroy clones
             go = Instantiate(marker, hit.point, Quaternion.identity); // set marker 1 at raycast hit point

@@ -98,7 +98,6 @@ public class Events : MonoBehaviour
 
     public void Phase2()
     {
-        en.chasing = true;
         if (time2 < 50.1f && time2 > 50f)
         {
             osting = false;
@@ -113,6 +112,6 @@ public class Events : MonoBehaviour
 
     public void Phase4()
     {
-        
+        en.chasing = true;
     }
 }
