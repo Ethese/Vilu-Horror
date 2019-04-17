@@ -102,9 +102,9 @@ public class Player : MonoBehaviour
 
     public void Sprint()
     {
-        if (rightSpeed > 6f && leftSpeed > 6f)
+        if (rightSpeed > 5f && leftSpeed > 5f)
         {
-            float extraSpeed = 2;
+            float extraSpeed = 3;
             speed = speed + extraSpeed;
         }
         else
