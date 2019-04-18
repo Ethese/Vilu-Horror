@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 9aec2d44e96e07f4d94104087a886541
+guid: dacd26be4ec04f748b55b0b88a63a3eb
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: V_SpidrTreLeafD_00t2 - copia_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -27,31 +28,31 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 1024
+  textureFormat: 1
+  maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 2
-    aniso: 3
+    filterMode: -1
+    aniso: -1
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
-  nPOTScale: 1
+    wrapW: -1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
-  spriteExtrude: 1
+  spriteMode: 2
+  spriteExtrude: 10
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 36, y: 53, z: 31, w: 48}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 2
+  alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
-  textureType: 0
+  spriteTessellationDetail: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -60,7 +61,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -71,7 +72,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -82,11 +83,56 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
+    sprites:
+    - serializedVersion: 2
+      name: V_SpidrTreLeafD_00t2 - copia_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 40
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ab53533b134294fb8decd6faa024f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -43, y: 55}
+      - {x: -46, y: 51}
+      - {x: -51, y: 53}
+      - {x: -52, y: 43}
+      - {x: -63, y: 43}
+      - {x: -55, y: 28}
+      - {x: -59, y: 23}
+      - {x: -32, y: 7}
+      - {x: -44, y: -10}
+      - {x: -37, y: -18}
+      - {x: -41, y: -23}
+      - {x: -40, y: -38}
+      - {x: -30, y: -39}
+      - {x: -25, y: -54}
+      - {x: -10, y: -56}
+      - {x: 10, y: -34}
+      - {x: 29, y: -37}
+      - {x: 32, y: -21}
+      - {x: 60, y: -11}
+      - {x: 49, y: -9}
+      - {x: 64, y: 28}
+      - {x: 56, y: 51}
+      - {x: 12, y: 20}
+      - {x: 7, y: 55}
+      - {x: -14, y: 43}
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9f60b6a32a207284c8770190ff5fb51a
     vertices: []
     indices: 
     edges: []
