@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     // References
     private Transform parent;
     private AudioSource aud;
+    public Animator an;
     public VidaJugador vida;
     public float leftSpeed;
     public float rightSpeed;
@@ -51,11 +52,13 @@ public class Player : MonoBehaviour
             SoundCont();
             stealth.Moving(speed * 1.5f); // aumentar radio 
             Move(currentHand.SetDirection());
+            an.SetBool("walking",true);
         }
         else
         {
             aud.Stop();
             stealth.Still(); // Hidden
+            an.SetBool("walking",false);
         }
 
         Sprint();
@@ -75,6 +78,20 @@ public class Player : MonoBehaviour
             vida.Death();
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "STAHP")
+        {
+            Destroy(other.gameObject); // destroy marker2 on collision
+            isMoving = false;
+        }
+
+        if (other.tag == "Finish")
+        {
+            vida.Death();
+        }
+    }
     #endregion
 
     #region Methods
@@ -82,7 +99,6 @@ public class Player : MonoBehaviour
     {
         float moving = speed * Time.deltaTime;
         parent.localPosition = Vector3.MoveTowards(new Vector3(parent.localPosition.x, parent.localPosition.y, parent.localPosition.z), target, moving);
-        Debug.Log(currentHand.SetDirection());
     }
 
     public void GetHand()

@@ -106,4 +106,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imag: {fileID: 0}
   obj: {fileID: 8445028126963801448}
-  temps: 0.1
+  temps: 0.5
