@@ -487,6 +487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 4350278872793543636}
   rightHand: {fileID: 1157227698698193643}
+  an: {fileID: 0}
+  vida: {fileID: 0}
   leftSpeed: 0
   rightSpeed: 0
   isMoving: 0
@@ -794,6 +796,7 @@ MonoBehaviour:
   currentHealth: 0
   startingLifes: 5
   currentLifes: 0
+  isDead: 0
   uiVida: {fileID: 5039326583782573135}
   uiVidas: {fileID: 7651722066068462034}
   respawn: {x: 0, y: 0, z: 0}
@@ -962,7 +965,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8ce0c7ab4b08ce74db650dd86af2fed6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -984,7 +987,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 100}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1097,7 +1100,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!138 &6095648305807144987
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -1289,7 +1292,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8ce0c7ab4b08ce74db650dd86af2fed6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1311,7 +1314,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 100}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1424,7 +1427,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!138 &4193371530836511418
 FixedJoint:
   m_ObjectHideFlags: 0
